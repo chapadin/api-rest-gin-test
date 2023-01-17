@@ -17,3 +17,10 @@ jobs:
         with:
           username: ${{ secrets.USERNAME_DOCKERHUB }}
           password: ${{ secrets.PASSWORD_DOCKERHUB }}
+      - name: Build and push
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags: chapadin/go_test:1.0
